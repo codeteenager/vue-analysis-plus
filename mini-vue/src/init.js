@@ -1,5 +1,6 @@
 import { compileToFunction } from './compiler/index';
 import { initState } from "./state";
+import { mountComponent } from './lifecycle';
 /**
  * 给Vue添加init方法
  * @param {*} Vue 
@@ -42,9 +43,8 @@ export function initMixin(Vue) {
                 ops.render = render;
             }
         }
+        mountComponent(vm, el);//组件的挂载
     }
-
-
 }
 
 
