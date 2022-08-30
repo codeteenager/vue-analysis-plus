@@ -1,4 +1,5 @@
 import { newArrayProto } from "./array";
+import Dep from './dep';
 class Observer {
     constructor(data) {
         //如果data有__ob__属性，则说明数据被检测过
@@ -31,14 +32,19 @@ class Observer {
 
 export function defineReactive(target, key, value) {
     observe(value);
+    let dep = new Dep(); //每个属性都有一个Dep
     Object.defineProperty(target, key, {
         get() {
+            if(Dep.target){
+                dep.depend(); //让属性的收集器记住watcher
+            }
             return value;
         },
         set(newValue = value) {
             if (newValue == value) return;
             observe(newValue);
             value = newValue;
+            dep.notify();
         }
     });
 }
