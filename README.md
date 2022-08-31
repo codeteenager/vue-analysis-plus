@@ -5,3 +5,4 @@ vue源码学习
 * [vue-cli源码解析](https://kuangpf.com/vue-cli-analysis/)
 * [Vue技术内幕](http://caibaojian.com/vue-design/art/)
 * [Vue.js技术揭秘](https://ustbhuangyi.github.io/vue-analysis/)
+* [Vue.js源码解析](https://github.com/answershuto/learnVue)
