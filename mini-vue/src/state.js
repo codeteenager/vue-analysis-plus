@@ -1,4 +1,6 @@
 import { observe } from "./observe/index";
+import Watcher, { nextTick } from "./observe/watcher";
+
 export function initState(vm) {
     const opts = vm.$options;
     if (opts.data) {
@@ -25,5 +27,12 @@ function initData(vm) {
 
     for (let key in data) {
         proxy(vm, "_data", key);
+    }
+}
+
+export function initStateMixin(Vue) {
+    Vue.prototype.$nextTick = nextTick;
+    Vue.prototype.$watch = function (exportOrFn, cb) {
+        //new Watcher(this,exportOrFn,{user:true},cb);
     }
 }

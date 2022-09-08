@@ -10,43 +10,43 @@
 
 <body>
     <div id="app">
-        <div>
-            {{name}}hello{{age}}world
-        </div>
+        <!-- <div>
+            {{name}}hello{{address['b']}}world
+        </div> -->
     </div>
     <script src="vue.js"></script>
     <script>
-        Vue.mixin({
-            created(){
-                console.log("=====created1======");
-            }
-        });
-        Vue.mixin({
-            created(){
-                console.log("=====created2======");
-            }
-        });
+        // Vue.mixin({
+        //     created(){
+        //         console.log("=====created1======");
+        //     }
+        // });
+        // Vue.mixin({
+        //     created(){
+        //         console.log("=====created2======");
+        //     }
+        // });
         
-        const vm = new Vue({
-            data() {
-                return {
-                    name: "jiang",
-                    age: 18,
-                    address: '123'
-                }
-            },
-            created(){
+        // const vm = new Vue({
+        //     data() {
+        //         return {
+        //             name: "jiang",
+        //             age: 18,
+        //             address: {a:10}
+        //         }
+        //     },
+        //     created(){
 
-            }
-        });
+        //     }
+        // });
        
-        vm.$mount('#app');
-        setTimeout(() => {
-            vm.name = 'w';
-            vm.age = 'v';
-            vm.address = '456';
-            vm._update(vm._render());
-        }, 0);
+        // vm.$mount('#app');
+        // setTimeout(() => {
+        //     vm.name = 'w';
+        //     vm.age = 'v';
+        //     vm.address['b']=20;
+        //     vm._update(vm._render());
+        // }, 0);
     </script>
 
 </body>
