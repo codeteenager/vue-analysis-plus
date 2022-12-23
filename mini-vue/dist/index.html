@@ -10,9 +10,10 @@
 
 <body>
     <div id="app">
-        <!-- <div>
+        <div>
             {{name}}hello{{address['b']}}world
-        </div> -->
+            <my-button></my-button>
+        </div>
     </div>
     <script src="vue.js"></script>
     <script>
@@ -26,27 +27,32 @@
         //         console.log("=====created2======");
         //     }
         // });
-        
-        // const vm = new Vue({
-        //     data() {
-        //         return {
-        //             name: "jiang",
-        //             age: 18,
-        //             address: {a:10}
-        //         }
-        //     },
-        //     created(){
 
-        //     }
-        // });
+        Vue.component('my-button',{
+            template: '<button>点我啊</button>'
+        });
+        
+        const vm = new Vue({
+            data() {
+                return {
+                    name: "jiang",
+                    age: 18,
+                    address: {a:10}
+                }
+            },
+            created(){
+
+            }
+        });
+
        
-        // vm.$mount('#app');
-        // setTimeout(() => {
-        //     vm.name = 'w';
-        //     vm.age = 'v';
-        //     vm.address['b']=20;
-        //     vm._update(vm._render());
-        // }, 0);
+        vm.$mount('#app');
+        setTimeout(() => {
+            vm.name = 'w';
+            vm.age = 'v';
+            vm.address['b']=20;
+            vm._update(vm._render());
+        }, 0);
     </script>
 
 </body>

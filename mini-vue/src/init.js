@@ -33,9 +33,9 @@ export function initMixin(Vue) {
             if (!ops.template && el) {
                 template = el.outerHTML;
             } else {
-                if (el) {
+                // if (el) {
                     template = ops.template;
-                }
+                // }
             }
 
             //如果写了template，就用template

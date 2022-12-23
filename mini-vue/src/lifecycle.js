@@ -6,8 +6,13 @@ export function initLifeCycle(Vue) {
     Vue.prototype._update = function (vnode) { //将vnode转换成真实dom
         const vm = this;
         const el = vm.$el;
-        //patch既有初始化功能，也有更新的功能。
-        vm.$el = patch(el, vnode);
+        const prevVnode = vm._vnode;
+        vm._vnode = vnode; //把组件第一次产生的虚拟节点存放在_vnode上
+        if(prevVnode){ //之前渲染过了
+            vm.$el = patch(prevVnode,vnode);
+        }else{
+            vm.$el = patch(el, vnode);
+        }
     }
     Vue.prototype._v = function () {
         return createTextVNode(this, ...arguments);
